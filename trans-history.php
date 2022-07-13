@@ -1,13 +1,7 @@
 <?php
 	include("auth.php");
 	include('../db_connect/db.php');
-	$Log_Id=$_SESSION['SESS_KRYPTADMIN_ID'];
-	$result = $db->prepare("select * from register where Log_Id='$Log_Id'");
-	$result->execute();
-	for($i=0; $row = $result->fetch(); $i++)
-	{		
-		$HVS=$row["HVS"];
-	}
+	$Log_Id=$_GET["Log_Id"];
 ?>	
 <!DOCTYPE html>
 <html lang="zxx">
@@ -36,34 +30,64 @@
     <div class="page-wrapper">
         <?php include("include/header.php"); ?>
         <div class="content-wrapper">
-
             <div class="breadcrumb-wrap bg-f br-4">
                 <div class="overlay bg-black op-7"></div>
                 <div class="container">
                     <div class="breadcrumb-title">
-                        <h2>Wallet Id: <?php echo $HVS;?> </h2>
+                        <h2>Transaction History </h2>
                         <ul class="breadcrumb-menu list-style">
+                            <li><a href="profile.php">Profile </a></li>
+                            <li><a href="transaction.php">Transactions </a></li>
+                            <li>Transaction History</li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <section class="Login-wrap ptb-100">
-                <div class="col-lg-6 offset-lg-3">
-                    <a href="members.php" class="btn style4 w-100">
-                        <h3 class="mb-0">All Members</h3>
-                    </a>
-                     <a href="request.php" class="btn style4 w-100">
-                        <h3 class="mb-0">Request</h3>
-                    </a>
-                    <a href="feedbacks.php" class="btn style4 w-100">
-                        <h3 class="mb-0">Feedbacks</h3>
-                    </a>
-                    <a href="logout.php" class="btn style4 w-100">
-                        <h3 class="mb-0">Logout</h3>
-                    </a>
+            <section class="author-wrap ptb-100">
+                <div class="container">                   
+                    <div class="rank-table">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">To</th>
+                                    <th scope="col">Amount</th>
+                                    <th scope="col">Key</th>
+                                    <th scope="col">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+									$result = $db->prepare("select * from snedmonay where Log_Id='$Log_Id'");
+									$result->execute();
+									for($i=1; $row = $result->fetch(); $i++)
+									{		
+								  ?> 
+                                <tr>
+                                    <td>
+                                        <?php echo $i;?>
+                                    </td>
+                                    <td>
+                                      <?php echo $row["skey"];?>
+                                    </td>
+                                    <td>
+                                        $ <?php echo $row["amount"];?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row["rkey"];?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row["date"];?>
+                                    </td>
+                                </tr>
+                               <?php }?> 
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </section>
         </div>
+        <?php include("include/footer.php"); ?>
     </div>
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>

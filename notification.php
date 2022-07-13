@@ -53,17 +53,11 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="contact-form">
-                                <form class="form-wrap" action="action/wallet.php" method="post" enctype="multipart/form-data">
+                                <form class="form-wrap" action="action/notification_send.php" method="post" enctype="multipart/form-data">
                                     <div class="content-title mb-20">
-                                        <h2>Latest Coin Details</h2>
+                                        <h2>Latest Notifications</h2>
                                     </div>
                                     <div class="row">
-                                    	<div class="col-md-12">
-                                            <div class="form-group v1">
-                                                <input class="w-100 p-3 rounded border shadow-lg"  name="name" type="text" placeholder="Name" required="">
-                                            </div>
-                                        </div>
-                                        <hr style="visibility:hidden">
                                         <div class="col-md-12">
                                             <div class="form-group v1">
                                                 <input class="w-100 p-3 rounded border shadow-lg"  name="date" type="date" placeholder="Date" required="">
@@ -84,17 +78,12 @@
                                         <hr style="visibility:hidden">
                                         <div class="col-md-12">
                                            <div class="form-group v1">
-                                               <input class="w-100 p-3 rounded border shadow-lg"  name="amount" type="number" placeholder="Amount" required="">
-                                            </div>
-                                        </div>
-                                         <hr style="visibility:hidden">
-                                        <div class="col-md-12">
-                                           <div class="form-group v1">
-                                               <input class="w-100 p-3 rounded border shadow-lg"  name="url" type="url" placeholder="Site" required="">
+                                                <textarea class="w-100 p-3 rounded border shadow-lg" name="message" id="message" placeholder="type here..." style="resize: none;" rows="10" required="" data-error="Please enter your feedback"></textarea>
+                                                <div class="help-block with-errors"></div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <button type="submit" class="btn style1 mt-3 rounded float-end">Post</button>
+                                            <button type="submit" class="btn style1 mt-3 rounded float-end">Send Notification</button>
                                         </div>
                                     </div>
                                 </form>

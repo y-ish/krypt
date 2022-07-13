@@ -2,12 +2,6 @@
 	include("auth.php");
 	include('../db_connect/db.php');
 	$Log_Id=$_SESSION['SESS_KRYPTADMIN_ID'];
-	$result = $db->prepare("select * from register where Log_Id='$Log_Id'");
-	$result->execute();
-	for($i=0; $row = $result->fetch(); $i++)
-	{		
-		$HVS=$row["HVS"];
-	}
 ?>	
 <!DOCTYPE html>
 <html lang="zxx">
@@ -36,34 +30,47 @@
     <div class="page-wrapper">
         <?php include("include/header.php"); ?>
         <div class="content-wrapper">
-
             <div class="breadcrumb-wrap bg-f br-4">
                 <div class="overlay bg-black op-7"></div>
                 <div class="container">
                     <div class="breadcrumb-title">
-                        <h2>Wallet Id: <?php echo $HVS;?> </h2>
+                        <h2>Members </h2>
                         <ul class="breadcrumb-menu list-style">
+                            <li><a href="dashboard.php">Dashboard </a></li>
+                            <li>Members</li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <section class="Login-wrap ptb-100">
-                <div class="col-lg-6 offset-lg-3">
-                    <a href="members.php" class="btn style4 w-100">
-                        <h3 class="mb-0">All Members</h3>
-                    </a>
-                     <a href="request.php" class="btn style4 w-100">
-                        <h3 class="mb-0">Request</h3>
-                    </a>
-                    <a href="feedbacks.php" class="btn style4 w-100">
-                        <h3 class="mb-0">Feedbacks</h3>
-                    </a>
-                    <a href="logout.php" class="btn style4 w-100">
-                        <h3 class="mb-0">Logout</h3>
-                    </a>
+            <section class="author-wrap ptb-100">
+                <div class="container">
+                    <div class="row justify-content-center">
+                     <?php
+					    $result = $db->prepare("select * from snedmonay");
+						$result->execute();
+						for($i=0; $row = $result->fetch(); $i++)
+						{		
+					  ?>    
+                        <div class="col-xxl-3 col-xl-4 col-lg-6 col-md-6">
+                            <div class="author-card style2">
+                                <div class="author-info-wrap pt-0">
+                                    <div class="author-info">
+                                        <div class="author-img">
+                                            <img src="../photo/<?php echo $row["photo"];?>" alt="Image">
+                                        </div>
+                                        <div class="author-name">
+                                            <h3><a href="trans-history.php<?php echo '?Log_Id='.$row['Log_Id']; ?>"><?php echo $row["name"];?></a></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       <?php }?>                         
+                    </div>
                 </div>
             </section>
         </div>
+        <?php include("include/footer.php"); ?>
     </div>
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>

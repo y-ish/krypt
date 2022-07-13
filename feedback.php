@@ -1,7 +1,7 @@
 <?php
 	include("auth.php");
 	include('../db_connect/db.php');
-	$Log_Id=$_SESSION['SESS_KRYPTADMIN_ID'];
+	$fdk_id=$_GET['fdk_id'];
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -53,48 +53,21 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="contact-form">
-                                <form class="form-wrap" action="action/wallet.php" method="post" enctype="multipart/form-data">
+                                <form class="form-wrap" action="action/feedback_reply.php" method="post">
+                                            <a href="feedbacks.php" class="btn style1 mb-3 rounded">Feedbacks</a>
                                     <div class="content-title mb-20">
-                                        <h2>Latest Coin Details</h2>
+                                        <h2>Feedback Reply</h2>
                                     </div>
                                     <div class="row">
-                                    	<div class="col-md-12">
-                                            <div class="form-group v1">
-                                                <input class="w-100 p-3 rounded border shadow-lg"  name="name" type="text" placeholder="Name" required="">
-                                            </div>
-                                        </div>
-                                        <hr style="visibility:hidden">
                                         <div class="col-md-12">
                                             <div class="form-group v1">
-                                                <input class="w-100 p-3 rounded border shadow-lg"  name="date" type="date" placeholder="Date" required="">
-                                            </div>
-                                        </div>
-                                        <hr style="visibility:hidden">
-                                          <div class="col-md-12">
-                                            <div class="form-group v1">
-                                                <input class="w-100 p-3 rounded border shadow-lg"  name="time" type="time" placeholder="Time" required="">
-                                            </div>
-                                        </div>
-                                        <hr style="visibility:hidden">
-                                          <div class="col-md-12">
-                                            <div class="form-group v1">
-                                                <input class="w-100 p-3 rounded border shadow-lg"  name="photo" type="file" placeholder="Photo" required="">
-                                            </div>
-                                        </div>
-                                        <hr style="visibility:hidden">
-                                        <div class="col-md-12">
-                                           <div class="form-group v1">
-                                               <input class="w-100 p-3 rounded border shadow-lg"  name="amount" type="number" placeholder="Amount" required="">
-                                            </div>
-                                        </div>
-                                         <hr style="visibility:hidden">
-                                        <div class="col-md-12">
-                                           <div class="form-group v1">
-                                               <input class="w-100 p-3 rounded border shadow-lg"  name="url" type="url" placeholder="Site" required="">
+                                            	<input name="fdk_id" type="hidden" value="<?php echo $fdk_id;?>">
+                                                <textarea class="w-100 p-3 rounded border shadow-lg" name="message" id="message" placeholder="type your feedback here..." style="resize: none;" rows="10" required="" data-error="Please enter your feedback"></textarea>
+                                                <div class="help-block with-errors"></div>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <button type="submit" class="btn style1 mt-3 rounded float-end">Post</button>
+                                            <button type="submit" class="btn style1 mt-3 rounded float-end">Send Reply</button>
                                         </div>
                                     </div>
                                 </form>
