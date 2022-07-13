@@ -3,8 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="format-detection" content="telephone=no">
@@ -17,7 +16,7 @@
     <link rel="stylesheet" href="assets/css/remixicon.min.css">
     <link rel="stylesheet" href="assets/vendors/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/vendors/zuck_stories/zuck.min.css">
-    
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 </head>
 
@@ -28,36 +27,34 @@
     <div id="wrapper">
         <div id="content">
             <header class="default heade-sticky">
+                <div class="un-title-page go-back">
+                    <a href="index.php" class="icon visited">
+                        <i class="ri-arrow-drop-left-line"></i>
+                    </a>
+                    <h1>Passcode</h1>
+                </div>
             </header>
             <div class="space-sticky"></div>
             <section class="account-section padding-20">
-                <div class="content__form margin-t-40 text-center">
-                    <img src="images/logo-white.png" width="100%">
+                <div class="display-title">
+                    <h1 class="text-center">Enter your Passcode</h1>
+                </div>
+                <div class="content__form margin-t-40">
+                    <form>
+                        <div class="form-group icon-left">
+                            <div class="input_group">
+                                <input type="text" id="demo" class="form-control" placeholder='' required>
+                                <div class="icon">
+                                    <i class="ri-lock-password-line"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </section>
-            <footer class="footer-account">
-                <div class="env-pb">
-                    <div class="display-actions mb-2">
-                        <a href="home.php" class="btn btn-sm-arrow bg-primary">
-                            <p>Create Wallet</p>
-                            <div class="ico">
-                                <i class="ri-arrow-drop-right-line"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="display-actions">
-                        <a href="password.php" class="btn btn-sm-arrow bg-primary">
-                            <p>Already have a Wallet</p>
-                            <div class="ico">
-                                <i class="ri-arrow-drop-right-line"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
-    
+
     <script src="assets/vendors/zuck_stories/zuck.min.js"></script>
     <script src="assets/vendors/smoothscroll/smoothscroll.min.js"></script>
     <script src="assets/vendors/swiper/swiper-bundle.min.js"></script>
@@ -65,6 +62,13 @@
     <script src="assets/vendors/nouislider/wNumb.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script src="assets/js/digitalKeyboard.js"></script>
+    <script type="text/javascript">
+        $("#demo").numKey({
+            limit: 6,
+            disorder: true
+        });
+    </script>
 </body>
 
 
