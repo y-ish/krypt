@@ -3,8 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="format-detection" content="telephone=no">
@@ -28,28 +27,33 @@
     <div id="wrapper">
         <div id="content">
             <header class="default heade-sticky">
+                <div class="un-title-page go-back">
+                    <a href="home.php" class="icon visited">
+                        <i class="ri-arrow-drop-left-line"></i>
+                    </a>
+                    <h1>Receive</h1>
+                </div>
             </header>
             <div class="space-sticky"></div>
             <section class="account-section padding-20">
                 <div class="content__form margin-t-40 text-center">
-                    <img src="images/logo-white.png" width="100%">
+                    <img src="images/qr.png" class="w-75">
+                    <p class="mt-2">WALLET ID</p>
                 </div>
             </section>
             <footer class="footer-account">
                 <div class="env-pb">
                     <div class="display-actions mb-2">
-                        <a href="home.php" class="btn btn-sm-arrow bg-primary">
-                            <p>Create Wallet</p>
+                        <a href="#" class="btn btn-sm-arrow bg-success">
+                            <p>Copy</p>
                             <div class="ico">
-                                <i class="ri-arrow-drop-right-line"></i>
+                                <i class="ri-file-copy-line"></i>
                             </div>
                         </a>
-                    </div>
-                    <div class="display-actions">
-                        <a href="password.php" class="btn btn-sm-arrow bg-primary">
-                            <p>Already have a Wallet</p>
+                        <a href="#" class="btn btn-sm-arrow bg-primary">
+                            <p>Share</p>
                             <div class="ico">
-                                <i class="ri-arrow-drop-right-line"></i>
+                                <i class="ri-share-line"></i>
                             </div>
                         </a>
                     </div>
@@ -57,7 +61,7 @@
             </footer>
         </div>
     </div>
-    
+
     <script src="assets/vendors/zuck_stories/zuck.min.js"></script>
     <script src="assets/vendors/smoothscroll/smoothscroll.min.js"></script>
     <script src="assets/vendors/swiper/swiper-bundle.min.js"></script>
